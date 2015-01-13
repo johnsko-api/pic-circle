@@ -7,4 +7,10 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :circle do
+    title "Round circle"
+    description "This circle is the best"
+    user
+  end
+
 end
