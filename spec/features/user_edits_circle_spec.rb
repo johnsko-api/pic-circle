@@ -40,7 +40,7 @@ Acceptance Criteria
     fill_in "user[email]", with: user2.email
     fill_in "user[password]", with: user2.password
     click_button "Log in"
-
+    
     expect { visit edit_circle_path(circle) }.to raise_error(ActiveRecord::RecordNotFound)
 
   end

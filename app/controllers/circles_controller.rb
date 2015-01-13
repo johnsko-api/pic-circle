@@ -45,9 +45,14 @@ class CirclesController < ApplicationController
 
   def destroy
     @circle = Circle.find(params[:id])
-    @circle.destroy
-      flash[:notice] = "You've successfully deleted a circle!"
-    redirect_to root_path
+    if current_user.id == @circle.user_id
+      @circle.destroy
+        flash[:notice] = "You've successfully deleted a circle!"
+      redirect_to root_path
+    else
+      flash[:alert] = "You are not the owner of that circle!"
+      redirect_to circle_path(@circle)
+    end
   end
 
   private
