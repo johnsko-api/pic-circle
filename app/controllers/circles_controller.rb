@@ -39,7 +39,7 @@ class CirclesController < ApplicationController
       end
     else
       redirect_to root_path
-      flash[:alert] = "You are not the owner of that buddy"
+      flash[:alert] = "You are not the owner of that circle!"
     end
   end
 
