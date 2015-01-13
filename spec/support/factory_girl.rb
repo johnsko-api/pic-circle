@@ -10,6 +10,7 @@ FactoryGirl.define do
   factory :circle do
     title "Round circle"
     description "This circle is the best"
+    user
   end
 
 end

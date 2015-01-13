@@ -1,16 +1,16 @@
 class CirclesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @circles = Circle.all
   end
 
   def new
-    @circle = Circle.new
+    @circle = current_user.circles.build
   end
 
   def create
-    @circle = Circle.new(circle_params)
+    @circle = current_user.circles.build(circle_params)
     if @circle.save
       flash[:notice] = "You've successfully created a circle!"
       redirect_to @circle
@@ -25,16 +25,21 @@ class CirclesController < ApplicationController
   end
 
   def edit
-    @circle = Circle.find(params[:id])
+    @circle = current_user.circles.find(params[:id])
   end
 
   def update
-    @circle = Circle.find(params[:id])
-    if @circle.update(circle_params)
-      flash[:notice] = "You've successfully updated a circle!"
-      redirect_to @circle
+    @circle = current_user.circles.find(params[:id])
+    if current_user.id == @circle.user_id
+      if @circle.update(circle_params)
+        flash[:notice] = "You've successfully updated a circle!"
+        redirect_to @circle
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      redirect_to root_path
+      flash[:alert] = "You are not the owner of that buddy"
     end
   end
 
