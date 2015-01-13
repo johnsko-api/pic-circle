@@ -39,6 +39,10 @@ class CirclesController < ApplicationController
   end
 
   def destroy
+    @circle = Circle.find(params[:id])
+    @circle.destroy
+      flash[:notice] = "You've successfully deleted a circle!"
+    redirect_to root_path
   end
 
   private
