@@ -31,7 +31,7 @@ class CirclesController < ApplicationController
   def update
     @circle = Circle.find(params[:id])
     if @circle.update(circle_params)
-      flash[:notice] = "Circle was successfully updated!"
+      flash[:notice] = "You've successfully updated a circle!"
       redirect_to @circle
     else
       render 'edit'

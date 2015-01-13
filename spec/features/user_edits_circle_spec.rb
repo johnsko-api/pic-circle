@@ -34,25 +34,4 @@ Acceptance Criteria
 
     end
   end
-
-#     scenario "not the author of buddy tries to edit buddy" do
-#       user2 = FactoryGirl.create(:user)
-#       visit new_user_session_path
-#       fill_in "user[email]", with: user2.email
-#       fill_in "user[password]", with: user2.password
-#       click_button "Log in"
-#
-#       expect { visit edit_buddy_path(buddy) }.to raise_error(ActiveRecord::RecordNotFound)
-#
-#     end
-#   end
-#
-#   context "unauthenticated user" do
-#     scenario "user tries to edit buddy when not signed in" do
-#       visit buddy_path(buddy)
-#
-#       visit edit_buddy_path(buddy)
-#       expect(page).to have_content("You need to sign in or sign up before continuing.")
-#     end
-#   end
 end
