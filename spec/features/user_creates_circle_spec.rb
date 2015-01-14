@@ -20,13 +20,13 @@ Acceptance Criteria
       visit new_user_session_path
       fill_in "user[email]", with: user.email
       fill_in "user[password]", with: user.password
-      click_button "Log in"
+      click_button "Login"
     end
 
     scenario "user successfully creates a circle and reads circle from root_path" do
 
       visit new_circle_path
-      fill_in "Title", with: "Descriptive Title"
+      fill_in "Group Name", with: "Descriptive Title"
       fill_in "Description", with: "this circle is very descriptive"
 
       click_button "Create Circle"
