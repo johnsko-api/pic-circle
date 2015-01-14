@@ -11,7 +11,6 @@ Acceptance Criteria
 
 ) do
 
-  # let(:user){ FactoryGirl.create(:user) }
   let(:circle) { FactoryGirl.create(:circle) }
   context "authenticated user" do
 
