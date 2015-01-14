@@ -1,0 +1,13 @@
+<div class="chatbox">
+  <div class="panel">
+    <% @comments.each do |comment| %>
+    <p><strong><%= comment.user.email %>:</strong>
+      <%= comment.body %></p>
+      <% end %>
+
+      <%= simple_form_for([@circle, @circle.comments.build]) do |f| %>
+      <p><%= f.input :body, label: 'Chat away!'%></p>
+      <p><%= f.submit 'Submit', class: "button" %></p>
+      <% end %>
+  </div>
+</div>

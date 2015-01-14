@@ -21,7 +21,7 @@ Acceptance Criteria
       fill_in "user[email]", with: circle.user.email
       fill_in "user[password]", with: circle.user.password
 
-      click_button "Log in"
+      click_button "Login"
       visit circle_path(circle)
 
       click_link "Delete"
@@ -34,7 +34,7 @@ Acceptance Criteria
     visit new_user_session_path
     fill_in "user[email]", with: user2.email
     fill_in "user[password]", with: user2.password
-    click_button "Log in"
+    click_button "Login"
 
     visit circle_path(circle)
     click_link "Delete"

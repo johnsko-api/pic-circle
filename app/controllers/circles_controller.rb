@@ -22,6 +22,7 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
+    @comments = @circle.comments.order(created_at: :desc)
   end
 
   def edit

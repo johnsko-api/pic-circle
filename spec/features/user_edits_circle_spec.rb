@@ -21,11 +21,11 @@ Acceptance Criteria
       fill_in "user[email]", with: circle.user.email
       fill_in "user[password]", with: circle.user.password
 
-      click_button "Log in"
+      click_button "Login"
       visit circle_path(circle)
 
       click_link "Edit"
-      fill_in "Title", with: "New Better Title"
+      fill_in "Group Name", with: "New Better Title"
       fill_in "Description", with: "New Better Description"
 
       click_button "Update Circle"
@@ -39,8 +39,8 @@ Acceptance Criteria
     visit new_user_session_path
     fill_in "user[email]", with: user2.email
     fill_in "user[password]", with: user2.password
-    click_button "Log in"
-    
+    click_button "Login"
+
     expect { visit edit_circle_path(circle) }.to raise_error(ActiveRecord::RecordNotFound)
 
   end
