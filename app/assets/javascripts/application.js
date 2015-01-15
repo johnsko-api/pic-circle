@@ -13,6 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require imagesloaded
+//= require masonry.pkgd
 //= require_tree .
 
-$(function(){ $(document).foundation(); });
+var $container = $('#container');
+$container.imagesLoaded( function() {
+  $container.masonry();
+});

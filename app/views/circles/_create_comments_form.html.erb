@@ -1,7 +1,7 @@
 <div class="chatbox">
   <div class="panel">
     <% @comments.each do |comment| %>
-    <p><strong><%= comment.user.email %>:</strong>
+    <p><strong><%= comment.user.display_name %>:</strong>
       <%= comment.body %></p>
       <% end %>
 

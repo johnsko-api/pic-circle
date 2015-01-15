@@ -1,4 +1,12 @@
-<%= simple_form_for([@circle, @circle.pictures.build]) do |f| %>
-<p><%= f.input :image %></p>
-<p><%= f.submit 'Upload', class: "button" %></p>
-<% end %>
+<div class="row">
+  <div class="upload">
+      <%= simple_form_for([@circle, @circle.pictures.build]) do |f| %>
+      <div class="small-8 columns">
+        <p><%= f.input :image %></p>
+      </div>
+      <div class="small-4 columns">
+        <p><%= f.submit 'Upload', class: "button expand" %></p>
+      </div>
+      <% end %>
+  </div>
+</div>
