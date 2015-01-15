@@ -1,0 +1,12 @@
+  <div class="transitions-enabled" id="pictures">
+    <% @pictures.each do |picture| %>
+    <div class="box panel panel-default">
+      <img src=<%="#{picture.image}"%>>
+      <div class="panel-body">
+        <h2>
+          <%= picture.user.email %>
+        </h2>
+      </div>
+    </div>
+    <% end %>
+  </div>

@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
+gem 'masonry-rails', '~> 0.2.1'
 
 group :development, :test do
   gem 'byebug'

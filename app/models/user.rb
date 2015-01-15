@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :circles
   belongs_to :circle
+  has_many :pictures
+  has_many :comments
 end

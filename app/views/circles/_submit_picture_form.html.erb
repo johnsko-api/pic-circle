@@ -1,0 +1,4 @@
+<%= simple_form_for([@circle, @circle.pictures.build]) do |f| %>
+<p><%= f.input :image %></p>
+<p><%= f.submit 'Upload', class: "button" %></p>
+<% end %>

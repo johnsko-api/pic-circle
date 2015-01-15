@@ -6,11 +6,15 @@ class CirclesController < ApplicationController
   end
 
   def new
-    @circle = current_user.circles.build
+    # @circle = current_user.circles.build
+    @circle = Circle.new
   end
 
   def create
-    @circle = current_user.circles.build(circle_params)
+    # @circle = current_user.circles.build(circle_params)
+    @id = current_user.id
+    @circle = Circle.new(circle_params)
+    @circle.user_id = @id
     if @circle.save
       flash[:notice] = "You've successfully created a circle!"
       redirect_to @circle
@@ -23,6 +27,7 @@ class CirclesController < ApplicationController
   def show
     @circle = Circle.find(params[:id])
     @comments = @circle.comments.order(created_at: :desc)
+    @pictures = Picture.where(circle_id: @circle.id)
   end
 
   def edit

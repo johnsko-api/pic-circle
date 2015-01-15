@@ -5,5 +5,9 @@ Rails.application.routes.draw do
   resources :circles do
     resources :comments, only: [:create]
   end
-  
+
+  resources :circles do
+    resources :pictures, only: [:create]
+  end
+
 end
