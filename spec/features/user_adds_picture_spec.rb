@@ -22,6 +22,10 @@ Acceptance Criteria
 
       click_button "Login"
       visit circle_path(circle)
+
+      fill_in "Image", with: "http://wallfon.com/walls/cars/porsche-carrera-gt.jpg"
+      click_button "Upload"
+      expect(page).to have_selector("img src="http://images6.fanpop.com/image/photos/33000000/pikachu-pikachu-33005706-895-1000.png"")
     end
   end
 
