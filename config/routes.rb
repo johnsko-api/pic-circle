@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :circles do
-    resources :pictures, only: [:create]
+    resources :pictures, only: [:create, :destroy]
   end
 
 end
