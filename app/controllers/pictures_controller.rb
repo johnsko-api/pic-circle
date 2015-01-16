@@ -16,15 +16,15 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    @picture = Review.find(params[:id])
+    @picture = Picture.find(params[:id])
     @circle = @picture.circle
-    if current_user.admin? || current_user.id == @picture.user_id
+    if current_user.id == @picture.user_id
       @picture.destroy
-      flash[:notice] = "You've successfully deleted a picture!"
+      flash[:notice] = "You've successfully deleted your picture!"
     else
       flash[:alert] = "You are not authorized to do this."
     end
-    redirect_to buddy_path(@circle)
+    redirect_to circle_path(@circle)
   end
 
   private
