@@ -1,0 +1,6 @@
+<ul class="chat-thread">
+  <% @comments.each do |comment| %>
+  <li><strong><%= comment.user.display_name %>:</strong>
+    <%= comment.body %></li>
+    <% end %>
+</ul>

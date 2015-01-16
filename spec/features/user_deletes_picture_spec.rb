@@ -23,7 +23,7 @@ Acceptance Criteria
       click_button "Login"
       visit circle_path(circle)
 
-      fill_in "Image", with: "http://wallfon.com/walls/cars/porsche-carrera-gt.jpg"
+      fill_in "Image from Internet", with: "http://wallfon.com/walls/cars/porsche-carrera-gt.jpg"
       click_button "Upload"
       expect(page).to have_css("img[src*='http://wallfon.com/walls/cars/porsche-carrera-gt.jpg']")
 

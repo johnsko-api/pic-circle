@@ -2,10 +2,10 @@
   <div class="upload">
       <%= simple_form_for([@circle, @circle.pictures.build]) do |f| %>
       <div class="small-8 columns">
-        <p><%= f.input :image %></p>
+        <p><%= f.text_field :image, label: false, placeholder: 'Image from Internet'%></p>
       </div>
       <div class="small-4 columns">
-        <p><%= f.submit 'Upload', class: "button expand" %></p>
+        <p><%= f.submit 'Upload' %></p>
       </div>
       <% end %>
   </div>
