@@ -1,13 +1,10 @@
-<div class="chatbox">
-  <div class="panel">
-    <% @comments.each do |comment| %>
-    <p><strong><%= comment.user.display_name %>:</strong>
-      <%= comment.body %></p>
-      <% end %>
-
-      <%= simple_form_for([@circle, @circle.comments.build]) do |f| %>
-      <p><%= f.input :body, label: 'Chat away!'%></p>
-      <p><%= f.submit 'Submit', class: "button" %></p>
-      <% end %>
-  </div>
+<div class="chatbox small-12 columns">
+    <%= simple_form_for([@circle, @circle.comments.build]) do |f| %>
+    <div id="small-8 columns">
+      <%= f.text_field :body, label: false, placeholder: 'Chat away!'%>
+    </div>
+    <div id="small-4 columns">
+      <%= f.submit 'Submit' %>
+    </div>
+    <% end %>
 </div>

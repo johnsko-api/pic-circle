@@ -6,12 +6,10 @@ class CirclesController < ApplicationController
   end
 
   def new
-    # @circle = current_user.circles.build
     @circle = Circle.new
   end
 
   def create
-    # @circle = current_user.circles.build(circle_params)
     @id = current_user.id
     @circle = Circle.new(circle_params)
     @circle.user_id = @id
