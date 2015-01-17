@@ -2,7 +2,7 @@ class CirclesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @circles = Circle.all
+    @circles = Circle.all.order(is_private: :asc)
   end
 
   def new
