@@ -24,8 +24,23 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
-    @comments = @circle.comments.order(created_at: :desc)
-    @pictures = Picture.where(circle_id: @circle.id)
+    if @circle.is_private == false
+      @comments = @circle.comments.order(created_at: :desc)
+      @pictures = Picture.where(circle_id: @circle.id)
+    else
+      if signed_in?
+        if current_user.id == @circle.user_id
+          @comments = @circle.comments.order(created_at: :desc)
+          @pictures = Picture.where(circle_id: @circle.id)
+        else
+          redirect_to root_path
+          flash[:alert] = "You do not have access to that circle!"
+        end
+      else
+        redirect_to root_path
+        flash[:alert] = "You do not have access to that circle!"
+      end
+    end
   end
 
   def edit
@@ -62,7 +77,7 @@ class CirclesController < ApplicationController
   private
 
   def circle_params
-    params.require(:circle).permit(:title, :description)
+    params.require(:circle).permit(:title, :description, :is_private)
   end
 
 
