@@ -11,7 +11,7 @@
                 <% if signed_in? %>
                   <% if current_user.id == picture.user_id %>
                     <%= link_to "Delete Picture", circle_picture_path(@circle, picture), method: :delete,
-                    class: "button tiny" %>
+                    class: "button" %>
                   <% end %>
                 <% end %>
             </div>
