@@ -4,10 +4,8 @@ Rails.application.routes.draw do
   root 'circles#index'
   resources :circles do
     resources :comments, only: [:create]
-  end
-
-  resources :circles do
     resources :pictures, only: [:create, :destroy]
+    resources :memberships, only: [:create]
   end
 
 end

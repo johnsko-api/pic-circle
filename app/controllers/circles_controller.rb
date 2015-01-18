@@ -33,8 +33,9 @@ class CirclesController < ApplicationController
           @comments = @circle.comments.order(created_at: :desc)
           @pictures = Picture.where(circle_id: @circle.id)
         else
-          redirect_to root_path
-          flash[:alert] = "You do not have access to that circle!"
+          @comments = @circle.comments.order(created_at: :desc)
+          @pictures = Picture.where(circle_id: @circle.id)
+          flash[:alert] = "You must join to have full access!"
         end
       else
         redirect_to root_path

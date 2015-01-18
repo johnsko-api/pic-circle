@@ -1,10 +1,29 @@
-<%= @circle.title %>
-<%= @circle.description %>
+<% if @circle.is_private == false %>
+  <%= @circle.title %>
+  <%= @circle.description %>
 
-<%= link_to "Edit", edit_circle_path %>
-<%= link_to "Delete", circle_path(@circle), method: :delete %>
+  <%= link_to "Edit", edit_circle_path %>
+  <%= link_to "Delete", circle_path(@circle), method: :delete %>
 
-<%= render "create_comments_form" %>
-<%= render "submit_picture_form" %>
-<%= render "view_pictures" %>
-<%= render "chatbox" %>
+  <%= render "create_comments_form" %>
+  <%= render "submit_picture_form" %>
+  <%= render "view_pictures" %>
+  <%= render "chatbox" %>
+<% else %>
+  <% if current_user.id == @circle.user_id %>
+    <%= @circle.title %>
+    <%= @circle.description %>
+
+    <%= link_to "Edit", edit_circle_path %>
+    <%= link_to "Delete", circle_path(@circle), method: :delete %>
+
+    <%= render "create_comments_form" %>
+    <%= render "submit_picture_form" %>
+    <%= render "view_pictures" %>
+    <%= render "chatbox" %>
+  <% else %>
+    <%= @circle.title %>
+    <%= @circle.description %>
+    <%= link_to "Join Group", circle_memberships_path(@circle), method: :post %>
+  <% end %>
+<% end %>

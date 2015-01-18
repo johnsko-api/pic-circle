@@ -38,7 +38,7 @@ Acceptance Criteria
       click_button "Login"
       visit circle_path(circle)
 
-      expect(page).to have_content("You do not have access to that circle!")
+      expect(page).to have_content("You must join to have full access!")
     end
   end
 
