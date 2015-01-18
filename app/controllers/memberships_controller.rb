@@ -3,7 +3,6 @@ class MembershipsController < ApplicationController
 
   def create
     @circle = Circle.find(params[:circle_id])
-    # binding.pry
     @membership = Membership.new
     @membership.circle_id = @circle.id
     @membership.user_id = current_user.id
