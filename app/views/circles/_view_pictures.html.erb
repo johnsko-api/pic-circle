@@ -7,7 +7,7 @@
           <div class="box panel panel-default">
             <img src=<%="#{picture.image}"%>>
             <div class="panel-body">
-              <h1><%= picture.user.display_name %></h1>
+              <h5>Submitted by: <strong><%= picture.user.display_name %></strong></h5>
                 <% if signed_in? %>
                   <% if current_user.id == picture.user_id %>
                     <%= link_to "Delete Picture", circle_picture_path(@circle, picture), method: :delete,
