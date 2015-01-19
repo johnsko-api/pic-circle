@@ -13,6 +13,7 @@ gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'jquery-masonry-rails'
 gem 'imagesLoaded_rails'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
