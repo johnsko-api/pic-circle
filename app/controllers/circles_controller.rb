@@ -24,12 +24,15 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
+    # membership = Membership.where(circle_id: @circle)
+    # @member = membership.where(user_id: current_user.id)
     if @circle.is_private == false
       @comments = @circle.comments.order(created_at: :desc)
       @pictures = Picture.where(circle_id: @circle.id)
     else
       if signed_in?
-        if current_user.id == @circle.user_id
+        binding.pry
+        if (current_user.id == @circle.user_id)
           @comments = @circle.comments.order(created_at: :desc)
           @pictures = Picture.where(circle_id: @circle.id)
         else
@@ -71,6 +74,17 @@ class CirclesController < ApplicationController
       redirect_to root_path
     else
       flash[:alert] = "You are not the owner of that circle!"
+      redirect_to circle_path(@circle)
+    end
+  end
+
+  def pending
+    @circle = Circle.find(params[:id])
+    member = Membership.where(circle_id: @circle)
+    @memberships = member.all
+    if current_user.id == @circle.user_id
+      member.update_all(approved: true)
+    else
       redirect_to circle_path(@circle)
     end
   end

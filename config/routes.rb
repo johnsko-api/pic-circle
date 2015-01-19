@@ -6,6 +6,11 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
     resources :pictures, only: [:create, :destroy]
     resources :memberships, only: [:create]
+
   end
+
+get "/circles/:id/pending" => "circles#pending", :as => :pending
+patch "/circles/:id/pending" => "circles#pending", :as => :approval
+
 
 end

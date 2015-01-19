@@ -10,9 +10,10 @@
   <%= render "view_pictures" %>
   <%= render "chatbox" %>
 <% else %>
-  <% if current_user.id == @circle.user_id %>
+  <% if (current_user.id == @circle.user_id) %>
     <%= @circle.title %>
     <%= @circle.description %>
+    <%= link_to "Pending", pending_path %>
 
     <%= link_to "Edit", edit_circle_path %>
     <%= link_to "Delete", circle_path(@circle), method: :delete %>

@@ -1,0 +1,7 @@
+<h1>Users waiting for your approval</h1>
+<% @memberships.each do |membership| %>
+<% member = User.where(id: membership.user_id) %>
+<li><%= member.first.display_name %> - <%= member.first.email %>
+<%= link_to "Approve", approval_path(membership.circle_id), method: :patch %></li>
+
+<% end %>
