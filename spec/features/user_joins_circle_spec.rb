@@ -14,12 +14,12 @@ Acceptance Criteria
   let(:circle) { FactoryGirl.create(:circle, is_private: true) }
   context "authenticated user" do
 
-    scenario "authenticated user who is not part of the group" do
+    scenario "user not part of a group tries to join a group" do
 
-      unauth_user = FactoryGirl.create(:user)
+      user = FactoryGirl.create(:user)
       visit new_user_session_path
-      fill_in "user[email]", with: unauth_user.email
-      fill_in "user[password]", with: unauth_user.password
+      fill_in "user[email]", with: user.email
+      fill_in "user[password]", with: user.password
 
       click_button "Login"
       visit circle_path(circle)

@@ -10,13 +10,21 @@
   <%= render "view_pictures" %>
   <%= render "chatbox" %>
 <% else %>
-  <% if (current_user.id == @circle.user_id) %>
+  <% if (current_user.id == @circle.user_id)%>
     <%= @circle.title %>
     <%= @circle.description %>
     <%= link_to "Pending", pending_path %>
 
     <%= link_to "Edit", edit_circle_path %>
     <%= link_to "Delete", circle_path(@circle), method: :delete %>
+
+    <%= render "create_comments_form" %>
+    <%= render "submit_picture_form" %>
+    <%= render "view_pictures" %>
+    <%= render "chatbox" %>
+  <% elsif @member.include?(@approved_member) %>
+    <%= @circle.title %>
+    <%= @circle.description %>
 
     <%= render "create_comments_form" %>
     <%= render "submit_picture_form" %>

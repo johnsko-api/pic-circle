@@ -24,14 +24,14 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
-    member = Membership.where(circle_id: @circle)
-    approved_member = member.where(user_id: current_user.id)
     if @circle.is_private == false
       @comments = @circle.comments.order(created_at: :desc)
       @pictures = Picture.where(circle_id: @circle.id)
     else
       if signed_in?
-        if (current_user.id == @circle.user_id)
+    @member = Membership.where(circle_id: @circle).where(approved: true)
+    @approved_member = @member.where(user_id: current_user.id).first
+        if (current_user.id == @circle.user_id) || @member.include?(@approved_member)
           @comments = @circle.comments.order(created_at: :desc)
           @pictures = Picture.where(circle_id: @circle.id)
         else

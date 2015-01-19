@@ -33,9 +33,9 @@ Acceptance Criteria
       click_button "Login"
       visit circle_path(circle)
       click_link "Pending"
-      expect(page).to have_content('display name - user1@example.com Approve')
+      expect(page).to have_content("display name - #{user.email} Approve")
       click_link "Approve"
-      expect(page).to have_content('display name - user1@example.com')
+      expect(page).to have_content("display name - #{user.email}")
     end
   end
 end
