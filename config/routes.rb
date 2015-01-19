@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   root 'circles#index'
   resources :circles do
     resources :comments, only: [:create]
+    resources :pictures, only: [:create, :destroy]
+    resources :memberships, only: [:create]
+
   end
 
-  resources :circles do
-    resources :pictures, only: [:create, :destroy]
-  end
+get "/circles/:id/pending" => "circles#pending", :as => :pending
+patch "/circles/:id/pending" => "circles#approval", :as => :approval
+
 
 end

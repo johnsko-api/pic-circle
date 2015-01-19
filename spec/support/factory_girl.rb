@@ -15,4 +15,10 @@ FactoryGirl.define do
     user
   end
 
+  factory :membership do
+    user
+    circle
+    approved false
+  end
+  
 end

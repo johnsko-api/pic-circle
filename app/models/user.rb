@@ -7,4 +7,5 @@ class User < ActiveRecord::Base
   belongs_to :circle
   has_many :pictures
   has_many :comments
+  has_many :memberships
 end
