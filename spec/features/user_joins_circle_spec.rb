@@ -14,7 +14,7 @@ Acceptance Criteria
   let(:circle) { FactoryGirl.create(:circle, is_private: true) }
   context "authenticated user" do
 
-    scenario "authenticated user who is not part of the group", focus: true do
+    scenario "authenticated user who is not part of the group" do
 
       unauth_user = FactoryGirl.create(:user)
       visit new_user_session_path
@@ -25,7 +25,7 @@ Acceptance Criteria
       visit circle_path(circle)
 
       click_link "Join Group"
-      expect(page).to have_content("You must wait for the owner to approve!")
+      expect(page).to have_content("You must now wait for approval!")
     end
   end
 

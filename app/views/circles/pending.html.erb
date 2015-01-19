@@ -1,7 +1,22 @@
-<h1>Users waiting for your approval</h1>
-<% @memberships.each do |membership| %>
-<% member = User.where(id: membership.user_id) %>
-<li><%= member.first.display_name %> - <%= member.first.email %>
-<%= link_to "Approve", approval_path(membership.circle_id), method: :patch %></li>
+<h3>Users waiting for your approval</h3>
+<% if @memberships.where(approved: false) == [] %>
+  None Pending
+<% else %>
+  <% @memberships.each do |membership| %>
+    <% if membership.approved == false %>
+      <% member = User.where(id: membership.user_id) %>
+      <li><%= member.first.display_name %> - <%= member.first.email %>
+      <%= link_to "Approve", approval_path(membership), method: :patch %></li>
+    <% end %>
+  <% end %>
+<% end %>
 
+
+
+<h3>Approved Users</h3>
+<% @memberships.each do |membership| %>
+  <% if membership.approved == true %>
+    <% member = User.where(id: membership.user_id) %>
+    <li><%= member.first.display_name %> - <%= member.first.email %>
+  <% end %>
 <% end %>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
 get "/circles/:id/pending" => "circles#pending", :as => :pending
-patch "/circles/:id/pending" => "circles#pending", :as => :approval
+patch "/circles/:id/pending" => "circles#approval", :as => :approval
 
 
 end

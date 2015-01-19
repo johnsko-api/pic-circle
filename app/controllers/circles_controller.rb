@@ -24,14 +24,13 @@ class CirclesController < ApplicationController
 
   def show
     @circle = Circle.find(params[:id])
-    # membership = Membership.where(circle_id: @circle)
-    # @member = membership.where(user_id: current_user.id)
+    member = Membership.where(circle_id: @circle)
+    approved_member = member.where(user_id: current_user.id)
     if @circle.is_private == false
       @comments = @circle.comments.order(created_at: :desc)
       @pictures = Picture.where(circle_id: @circle.id)
     else
       if signed_in?
-        binding.pry
         if (current_user.id == @circle.user_id)
           @comments = @circle.comments.order(created_at: :desc)
           @pictures = Picture.where(circle_id: @circle.id)
@@ -83,10 +82,17 @@ class CirclesController < ApplicationController
     member = Membership.where(circle_id: @circle)
     @memberships = member.all
     if current_user.id == @circle.user_id
-      member.update_all(approved: true)
     else
       redirect_to circle_path(@circle)
     end
+  end
+
+  def approval
+    @membership = Membership.find(params[:id])
+    @membership.update_attributes(approved: true)
+    @circle = @membership.circle_id
+    flash[:notice] = "Approved!"
+    redirect_to pending_path(@circle)
   end
 
   private
