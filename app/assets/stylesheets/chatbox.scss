@@ -5,7 +5,7 @@
 // Variables
 // --------------------------------------
 $scrollbar-width:              10px;
-$chat-thread-bgd-color:        rgba(58, 51, 57, 0.2);
+$chat-thread-bgd-color:        rgba(110, 110, 110, 0.5);
 $chat-thread-msg-arrow-size:   15px;
 
 body {
@@ -23,7 +23,7 @@ body {
 
 ::-webkit-scrollbar-track {
   border-radius: $scrollbar-width;
-  background-color: rgba(58, 51, 57, 0.1);
+  background-color: $chat-thread-bgd-color;
 }
 
 ::-webkit-scrollbar-thumb {

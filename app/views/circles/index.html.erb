@@ -1,12 +1,14 @@
 <div class="row">
-  <h4>Circles</h4>
+  <h1>Circles</h1>
   <hr>
   <div class="medium-12 columns">
     <div id="container" class="js-masonry" data-masonry-options='{ "itemSelector": ".item" }'>
       <div class="row">
         <% @circles.each do |circle| %>
         <div class="small-12 medium-6 large-4 columns item">
-          <div class="box panel panel-default">
+
+
+          <div class="crop">
             <a href="/circles/<%=circle.id%>">
               <% if circle.is_private == true %>
                 <img src=<%="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/8/25/1282747751685/Top-secret-stamp-006.jpg" %>></a>
@@ -17,10 +19,8 @@
                   <img src=<%="#{circle.pictures.first.image}" %>></a>
                 <% end %>
               <% end %>
-            <div class="panel-body">
-              <h1><%= circle.title %></h1>
-            </div>
           </div>
+
         </div>
         <% end %>
       </div>
