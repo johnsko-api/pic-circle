@@ -1,5 +1,6 @@
 .upload {
-  width: 300px;
+  width: 325px;
+  float: left;
 }
 .chatbox {
   float: left;
@@ -98,8 +99,14 @@ textarea {
   -webkit-animation: fadeIn 2s;
 }
 
-.panel h1 {
-  margin-bottom: 0;
+.panel h2 {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.panel h3 {
+  color: rgba(255, 255, 255, 0.75);
+  margin-left: 40px;
+  font-size: 18px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -107,8 +114,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .alert-box.alert {
-  background-color: #B524F0;
-  border-color: #de2d0f;
+  background-color: rgba(240, 128, 128, 0.5);
+  border-color: rgba(240, 128, 128, 0.5);
+  color: white;
+}
+
+.alert-box.success {
+  background-color: rgba(135, 206, 250, 0.5);
+  border-color: rgba(135, 206, 250, 0.5);
   color: white;
 }
 
@@ -136,22 +149,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #F3843E;
 }
 
-button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #FF5A09;
+.button.tiny {
+  float: right;
+  margin-right: 2px;
 }
 
-.mid h5 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
-  color: white;
-  text-transform: uppercase;
-  text-align: left;
-  margin: 11px;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  font-size: 1rem;
-  transform: translate(-50%, -50%);
+button:hover, button:focus, .button:hover, .button:focus {
+  background-color: #FF5A09;
 }
 
 .animation {
@@ -175,4 +179,25 @@ button:hover, button:focus, .button:hover, .button:focus {
 
 .top-bar-section li {
     background: transparent !important;
+}
+
+.alert-box {
+  border-style: solid;
+  border-width: 1px;
+  display: block;
+  font-weight: normal;
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+  font-size: 0.8125rem;
+  transition: opacity 300ms ease-out;
+  background-color: rgba(135, 206, 250, 0.5);
+  border-color: rgba(135, 206, 250, 0.5);
+  color: white;
+}
+
+.panel-body h5 {
+  color: #D3D3D3;
+  text-align: center;
+  margin-top: 0px;
 }

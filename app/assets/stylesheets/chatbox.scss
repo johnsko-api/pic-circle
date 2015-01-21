@@ -5,7 +5,7 @@
 // Variables
 // --------------------------------------
 $scrollbar-width:              10px;
-$chat-thread-bgd-color:        rgba(110, 110, 110, 0.5);
+$chat-thread-bgd-color:        rgba(110, 110, 110, 0.8);
 $chat-thread-msg-arrow-size:   15px;
 
 body {
@@ -57,7 +57,7 @@ body {
   -moz-animation: show-chat-odd 0.15s 1 ease-in;
   -webkit-animation: show-chat-odd 0.15s 1 ease-in;
   float: left;
-  color: #000000;
+  color: #FF9900;
 }
 
 .chat-window {

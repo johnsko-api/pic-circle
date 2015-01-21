@@ -20,7 +20,7 @@ class PicturesController < ApplicationController
     @circle = @picture.circle
     if current_user.id == @picture.user_id
       @picture.destroy
-      flash[:notice] = "You've successfully deleted your picture!"
+      flash[:success] = "You've successfully deleted your picture!"
     else
       flash[:alert] = "You are not authorized to do this."
     end

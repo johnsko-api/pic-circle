@@ -1,6 +1,5 @@
+<br>
 <div class="row">
-  <h1>Circles</h1>
-  <hr>
   <div class="medium-12 columns">
     <div id="container" class="js-masonry" data-masonry-options='{ "itemSelector": ".item" }'>
       <div class="row">
@@ -10,17 +9,15 @@
             <a href="/circles/<%=circle.id%>">
               <div class="panel-body">
                 <% if circle.is_private == true %>
-                  <img src=<%="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2010/8/25/1282747751685/Top-secret-stamp-006.jpg" %>></a>
+                  <%= image_tag "private.jpg" %>
                 <% else %>
                   <% if circle.pictures == [] %>
-                    <img src=<%="http://texcoms.com/wp-content/uploads/2014/12/nophoto.gif9_2.jpg" %>></a>
+                    <%= image_tag "nophoto.jpg" %>
                   <% else %>
                       <img src=<%="#{circle.pictures.first.image}" %>></a>
                   <% end %>
                 <% end %>
-                  <div class="mid">
                     <h5><%=circle.title %></h5>
-                  </div>
               </div>
             </div>
         </div>

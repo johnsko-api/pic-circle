@@ -14,7 +14,7 @@ class CirclesController < ApplicationController
     @circle = Circle.new(circle_params)
     @circle.user_id = @id
     if @circle.save
-      flash[:notice] = "You've successfully created a circle!"
+      flash[:success] = "You've successfully created a circle!"
       redirect_to @circle
     else
       flash[:alert] = @circle.errors.full_messages
@@ -54,7 +54,7 @@ class CirclesController < ApplicationController
     @circle = current_user.circles.find(params[:id])
     if current_user.id == @circle.user_id
       if @circle.update(circle_params)
-        flash[:notice] = "You've successfully updated a circle!"
+        flash[:success] = "You've successfully updated a circle!"
         redirect_to @circle
       else
         render 'edit'
@@ -69,7 +69,7 @@ class CirclesController < ApplicationController
     @circle = Circle.find(params[:id])
     if current_user.id == @circle.user_id
       @circle.destroy
-        flash[:notice] = "You've successfully deleted a circle!"
+        flash[:success] = "You've successfully deleted a circle!"
       redirect_to root_path
     else
       flash[:alert] = "You are not the owner of that circle!"
@@ -91,7 +91,7 @@ class CirclesController < ApplicationController
     @membership = Membership.find(params[:id])
     @membership.update_attributes(approved: true)
     @circle = @membership.circle_id
-    flash[:notice] = "Approved!"
+    flash[:success] = "Approved!"
     redirect_to pending_path(@circle)
   end
 

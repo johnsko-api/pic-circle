@@ -1,25 +1,30 @@
 <% if @circle.is_private == false %>
-  <%= @circle.title %>
-  <%= @circle.description %>
-
-  <%= link_to "Edit", edit_circle_path %>
-  <%= link_to "Delete", circle_path(@circle), method: :delete %>
-
+  <div class="panel">
+    <h2><%= @circle.title %></h2>
+    <h3><%= @circle.description %></h3>
+    <%= link_to "Edit", edit_circle_path, class: "button tiny" %>
+    <%= link_to "Delete", circle_path(@circle), method: :delete, class: "button tiny"%>
+  </div>
   <%= render "submit_picture_form" %>
+  <hr>
   <%= render "view_pictures" %>
+  <hr>
   <%= render "chatbox" %>
   <%= render "create_comments_form" %>
 <% else %>
   <% if (current_user.id == @circle.user_id)%>
-    <%= @circle.title %>
-    <%= @circle.description %>
-    <%= link_to "Pending", pending_path %>
-
-    <%= link_to "Edit", edit_circle_path %>
-    <%= link_to "Delete", circle_path(@circle), method: :delete %>
+  <div class="panel">
+    <h2><%= @circle.title %></h2>
+    <h3><%= @circle.description %></h3>
+    <%= link_to "Pending", pending_path, class: "button tiny" %>
+    <%= link_to "Edit", edit_circle_path, class: "button tiny" %>
+    <%= link_to "Delete", circle_path(@circle), method: :delete, class: "button tiny"%>
+  </div>
 
     <%= render "submit_picture_form" %>
+    <hr>
     <%= render "view_pictures" %>
+    <hr>
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
   <% elsif @member.include?(@approved_member) %>
@@ -27,12 +32,14 @@
     <%= @circle.description %>
 
     <%= render "submit_picture_form" %>
+    <hr>
     <%= render "view_pictures" %>
+    <hr>
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
   <% else %>
     <%= @circle.title %>
     <%= @circle.description %>
-    <%= link_to "Join Group", circle_memberships_path(@circle), method: :post %>
+    <%= link_to "Join Group", circle_memberships_path(@circle), method: :post, class: "button"%>
   <% end %>
 <% end %>
