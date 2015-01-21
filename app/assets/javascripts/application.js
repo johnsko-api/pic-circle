@@ -19,5 +19,7 @@
 
 var $container = $('#container');
 $container.imagesLoaded( function() {
-  $container.masonry();
+  $container.masonry({
+    position: 'relative'
+  });
 });
