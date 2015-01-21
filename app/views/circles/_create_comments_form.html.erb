@@ -1,10 +1,14 @@
-<div class="chatbox small-12 columns">
-    <%= simple_form_for([@circle, @circle.comments.build]) do |f| %>
-    <div id="small-8 columns">
-      <%= f.text_field :body, label: false, placeholder: 'Chat away!'%>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row collapse">
+      <div class="small-10 columns ">
+      <%= simple_form_for([@circle, @circle.comments.build]) do |f| %>
+        <%= f.text_field :body, label: false, placeholder: 'Chat away!'%>
+      </div>
+      <div class="small-2 columns">
+        <%= f.submit 'Submit', class: "button postfix" %>
+      </div>
     </div>
-    <div id="small-4 columns">
-      <%= f.submit 'Submit' %>
-    </div>
-    <% end %>
+      <% end %>
+  </div>
 </div>

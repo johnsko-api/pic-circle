@@ -2,7 +2,7 @@
   width: 300px;
 }
 .chatbox {
-  float: right;
+  float: left;
   width: 300px;
 }
 
@@ -85,4 +85,94 @@
 
 textarea {
   min-height: 250px;
+}
+
+.top-bar {
+  background: #393939;
+  background-color: rgba(57, 57, 57, 0.6);
+}
+
+.panel {
+  background: rgba(243, 132, 62, 0.2);
+  border-color: rgba(243, 132, 62, 0);
+  -webkit-animation: fadeIn 2s;
+}
+
+.panel h1 {
+  margin-bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: rgba(225, 90, 9, 1.0);
+}
+
+.alert-box.alert {
+  background-color: #B524F0;
+  border-color: #de2d0f;
+  color: white;
+}
+
+#bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+}
+
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+
+.button {
+  background-color: #6E6E6E;
+  color: #F3843E;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+  background-color: #FF5A09;
+}
+
+.mid h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 11px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1rem;
+  transform: translate(-50%, -50%);
+}
+
+.animation {
+  box-shadow: 0px 0px 43px #000000;
+  -webkit-animation: bounceIn 1s;
+}
+
+.animation2 {
+  box-shadow: 0px 0px 43px #000000;
+  -webkit-animation: fadeIn 3s;
+}
+
+.top-bar-section ul li {
+  a:hover {
+    background: #FF5A09 !important;
+  }
+  a {
+    background: transparent !important;
+  }
+}
+
+.top-bar-section li {
+    background: transparent !important;
 }

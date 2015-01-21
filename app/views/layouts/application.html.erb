@@ -12,6 +12,10 @@
 </head>
 <body>
 
+  <div id="bg">
+    <%= image_tag "circles.png" %>
+  </div>
+
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
@@ -20,7 +24,7 @@
     </ul>
 
     <section class="top-bar-section">
-      <ul class="right">
+      <ul class="right ul-background">
         <%- if current_user -%>
           <li><%= link_to "#{current_user.display_name}", edit_user_registration_path %></li>
           <li><%= link_to "Create Circle", new_circle_path %></li>
