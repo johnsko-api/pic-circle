@@ -9,18 +9,53 @@
             <a href="/circles/<%=circle.id%>">
               <div class="panel-body">
                 <% if circle.is_private == true %>
-                  <%= image_tag "private.jpg" %>
+                <div class="card">
+                  <div class="container">
+                    <div class="front">
+                      <%= image_tag "private.jpg" %>
+                    </div>
+                    <div class="back">
+                      <a href="/circles/<%=circle.id%>">
+                        <h4><%=circle.title.capitalize%></h4>
+                        <h5>by: <%=circle.user.display_name%></h5>
+                        <p>description: <%=circle.description%></p>
+                      </div>
+                    </div>
+                  </div>
                 <% else %>
                   <% if circle.pictures == [] %>
-                    <%= image_tag "nophoto.jpg" %>
+                  <div class="card">
+                    <div class="container">
+                      <div class="front">
+                        <%= image_tag "nophoto.jpg" %>
+                      </div>
+                      <div class="back">
+                        <a href="/circles/<%=circle.id%>">
+                          <h4><%=circle.title.capitalize%></h4>
+                          <h5>by: <%=circle.user.display_name%></h5>
+                          <p>description: <%=circle.description%></p>
+                        </div>
+                      </div>
+                    </div>
                   <% else %>
-                      <img src=<%="#{circle.pictures.first.image}" %>></a>
+                  <div class="card">
+                    <div class="container">
+                      <div class="front">
+                        <img src=<%="#{circle.pictures.first.image}" %>></a>
+                      </div>
+                      <div class="back">
+                        <a href="/circles/<%=circle.id%>">
+                          <h4><%=circle.title.capitalize%></h4>
+                          <h5>by: <%=circle.user.display_name%></h5>
+                        <p>description: <%=circle.description%></p>
+                      </div>
+                    </div>
+                  </div>
                   <% end %>
                 <% end %>
-                    <h5><%=circle.title %></h5>
               </div>
             </div>
-        </div>
+          </div>
         <% end %>
       </div>
     </div>
