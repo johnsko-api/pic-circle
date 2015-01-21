@@ -1,4 +1,5 @@
 <% if @circle.is_private == false %>
+  <br>
   <div class="panel">
     <h2><%= @circle.title %></h2>
     <h3><%= @circle.description %></h3>
@@ -13,6 +14,7 @@
   <%= render "create_comments_form" %>
 <% else %>
   <% if (current_user.id == @circle.user_id)%>
+  <br>
   <div class="panel">
     <h2><%= @circle.title %></h2>
     <h3><%= @circle.description %></h3>
@@ -28,8 +30,11 @@
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
   <% elsif @member.include?(@approved_member) %>
-    <%= @circle.title %>
-    <%= @circle.description %>
+  <br>
+  <div class="panel">
+    <h2><%= @circle.title %></h2>
+    <h3><%= @circle.description %></h3>
+  </div>
 
     <%= render "submit_picture_form" %>
     <hr>
@@ -38,8 +43,11 @@
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
   <% else %>
-    <%= @circle.title %>
-    <%= @circle.description %>
-    <%= link_to "Join Group", circle_memberships_path(@circle), method: :post, class: "button"%>
+  <br>
+  <div class="panel">
+    <h2><%= @circle.title %></h2>
+    <h3><%= @circle.description %></h3>
+    <%= link_to "Join Group", circle_memberships_path(@circle), method: :post, class: "button tiny"%>
+  </div>
   <% end %>
 <% end %>
