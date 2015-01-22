@@ -13,6 +13,10 @@ gem 'simple_form'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'jquery-masonry-rails'
 gem 'imagesLoaded_rails'
+gem 'paperclip', '~> 4.2.0'
+gem 'aws-sdk'
+gem 'fog'
+gem 'dotenv-rails', '~> 1.0.2'
 
 group :production do
   gem 'rails_12factor'
@@ -22,6 +26,7 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'rack-mini-profiler'
 end
 
 gem 'pry-rails', group: [:development, :test]

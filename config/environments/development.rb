@@ -27,6 +27,14 @@ Rails.application.configure do
   # number of complex assets.
   config.assets.debug = true
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :access_key_id  => ENV["AWS_ACCESS_KEY_ID"],
+      :secret_access_key => ENV["AWS_SECRET_ACCESS_KEY"],
+      :bucket => ENV["S3_BUCKET_NAME"]
+    }
+  }
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
   config.assets.digest = true
