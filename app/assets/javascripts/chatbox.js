@@ -50,8 +50,6 @@ function createConnection () {
   }
 
   localPeerConnection.onicecandidate = gotLocalCandidate;
-  sendChannel.onopen = handleSendChannelStateChange;
-  sendChannel.onclose = handleSendChannelStateChange;
 
   if (window.mozRTCPeerConnection) {
     window.remotePeerConnection = new mozRTCPeerConnection(servers, {
