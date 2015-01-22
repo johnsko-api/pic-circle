@@ -12,66 +12,7 @@ receiveChannel,
 chatWindow = document.querySelector('.chat-window'),
 chatThread = document.querySelector('.chat-thread');
 
-// Create WebRTC connection
-createConnection();
-
-// On form submit, send message
-chatWindow.onsubmit = function (e) {
-  e.preventDefault();
-
-  sendData();
-
-  return false;
-};
-
-function createConnection () {
-  var servers = null;
-
-  if (window.mozRTCPeerConnection) {
-    window.localPeerConnection = new mozRTCPeerConnection(servers, {
-      optional: [{
-        RtpDataChannels: true
-      }]
-    });
-  } else {
-    window.localPeerConnection = new webkitRTCPeerConnection(servers, {
-      optional: [{
-        RtpDataChannels: true
-      }]
-    });
-  }
-
-  try {
-    // Reliable Data Channels not yet supported in Chrome
-    sendChannel = localPeerConnection.createDataChannel('sendDataChannel', {
-      reliable: false
-    });
-  } catch (e) {
-  }
-
-  localPeerConnection.onicecandidate = gotLocalCandidate;
-
-  if (window.mozRTCPeerConnection) {
-    window.remotePeerConnection = new mozRTCPeerConnection(servers, {
-      optional: [{
-        RtpDataChannels: true
-      }]
-    });
-  } else {
-    window.remotePeerConnection = new webkitRTCPeerConnection(servers, {
-      optional: [{
-        RtpDataChannels: true
-      }]
-    });
-  }
-
-  remotePeerConnection.onicecandidate = gotRemoteIceCandidate;
-  remotePeerConnection.ondatachannel = gotReceiveChannel;
-
-  // Firefox seems to require an error callback
-  localPeerConnection.createOffer(gotLocalDescription, function (err) {
-  });
-}
+// Firefox seems to require an error callback
 
 function sendData () {
   sendChannel.send(chatWindowMessage.value);

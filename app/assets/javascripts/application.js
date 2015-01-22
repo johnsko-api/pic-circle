@@ -17,10 +17,9 @@
 //= require masonry.pkgd
 //= require_tree .
 
-  var $container = $('#container');
-  $container.imagesLoaded( function() {
-    $container.masonry({
-      position: 'relative'
-    });
+var $container = $('#container');
+$container.imagesLoaded( function() {
+  $container.masonry({
+    position: 'relative'
   });
 });

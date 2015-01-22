@@ -17,6 +17,10 @@
                       <%= link_to "Delete Picture", circle_picture_path(@circle, picture), method: :delete,
                       class: "button delete" %>
                     </div>
+                  <% else %>
+                  <div class="backk">
+                    <h5>by: <strong><%= picture.user.display_name %></strong></h5>
+                  </div>
                   <% end %>
                 <% else %>
                   <div class="backk">

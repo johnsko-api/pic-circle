@@ -10,8 +10,10 @@
   <hr>
   <%= render "view_pictures" %>
   <hr>
-  <%= render "chatbox" %>
-  <%= render "create_comments_form" %>
+  <div class="panel">
+    <%= render "chatbox" %>
+    <%= render "create_comments_form" %>
+  </div>
 <% else %>
   <% if (current_user.id == @circle.user_id)%>
   <br>
@@ -27,8 +29,10 @@
     <hr>
     <%= render "view_pictures" %>
     <hr>
+  <div class="panel">
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
+  </div>
   <% elsif @member.include?(@approved_member) %>
   <br>
   <div class="panel">
@@ -40,8 +44,10 @@
     <hr>
     <%= render "view_pictures" %>
     <hr>
-    <%= render "chatbox" %>
-    <%= render "create_comments_form" %>
+    <div class="panel">
+      <%= render "chatbox" %>
+      <%= render "create_comments_form" %>
+    </div>
   <% else %>
   <br>
   <div class="panel">
