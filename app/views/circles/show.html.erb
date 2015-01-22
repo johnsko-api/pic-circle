@@ -1,19 +1,30 @@
 <% if @circle.is_private == false %>
   <br>
-  <div class="panel">
-    <h2><%= @circle.title %></h2>
-    <h3><%= @circle.description %></h3>
-    <%= link_to "Edit", edit_circle_path, class: "button tiny" %>
-    <%= link_to "Delete", circle_path(@circle), method: :delete, class: "button tiny"%>
-  </div>
-  <%= render "submit_picture_form" %>
-  <hr>
-  <%= render "view_pictures" %>
-  <hr>
-  <div class="panel">
-    <%= render "chatbox" %>
-    <%= render "create_comments_form" %>
-  </div>
+  <% if signed_in? && (current_user.id == @circle.user_id) %>
+    <div class="panel">
+      <h2><%= @circle.title %></h2>
+      <h3><%= @circle.description %></h3>
+      <%= link_to "Edit", edit_circle_path, class: "button tiny" %>
+      <%= link_to "Delete", circle_path(@circle), method: :delete, class: "button tiny"%>
+    </div>
+    <%= render "submit_picture_form" %>
+    <%= render "view_pictures" %>
+    <div class="panel1">
+      <%= render "chatbox" %>
+      <%= render "create_comments_form" %>
+    </div>
+  <% else %>
+    <div class="panel">
+      <h2><%= @circle.title %></h2>
+      <h3><%= @circle.description %></h3>
+    </div>
+    <%= render "submit_picture_form" %>
+    <%= render "view_pictures" %>
+    <div class="panel1">
+      <%= render "chatbox" %>
+      <%= render "create_comments_form" %>
+    </div>
+  <% end %>
 <% else %>
   <% if (current_user.id == @circle.user_id)%>
   <br>
@@ -24,12 +35,9 @@
     <%= link_to "Edit", edit_circle_path, class: "button tiny" %>
     <%= link_to "Delete", circle_path(@circle), method: :delete, class: "button tiny"%>
   </div>
-
     <%= render "submit_picture_form" %>
-    <hr>
     <%= render "view_pictures" %>
-    <hr>
-  <div class="panel">
+  <div class="panel1">
     <%= render "chatbox" %>
     <%= render "create_comments_form" %>
   </div>
@@ -39,12 +47,9 @@
     <h2><%= @circle.title %></h2>
     <h3><%= @circle.description %></h3>
   </div>
-
     <%= render "submit_picture_form" %>
-    <hr>
     <%= render "view_pictures" %>
-    <hr>
-    <div class="panel">
+    <div class="panel1">
       <%= render "chatbox" %>
       <%= render "create_comments_form" %>
     </div>
