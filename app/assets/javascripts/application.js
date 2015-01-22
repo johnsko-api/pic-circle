@@ -17,11 +17,10 @@
 //= require masonry.pkgd
 //= require_tree .
 
-$(window).load( function() {
-  var $container = $('#container');
-  $container.imagesLoaded( function() {
-    $container.masonry({
-      position: 'relative'
-    });
-  });
+var $container =
+$('#container').masonry();
+
+$container.imagesLoaded(
+  function() {
+    $container.masonry();
 });
