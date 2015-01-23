@@ -20,20 +20,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password, "Password" %>
-    <%= f.label :password, "(leave blank if you don't want to change it)" %>
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "New Password (leave blank if you don't want to change it)" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Password Confirmation" %>
   </div>
 
   <div class="field">
-    <%= f.label :current_password, "Current Password" %>
-    <%= f.label :current_password, "(we need your current password to confirm your changes)" %>
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <%= f.password_field :current_password, autocomplete: "off", placeholder: "Password (current password to confirm your changes)"%>
   </div>
 
   <div class="actions">
