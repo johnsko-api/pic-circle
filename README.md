@@ -4,10 +4,10 @@ users can share pictures and chat in a visually appealing manner.
 Here are some screenshots of PicCircle
 
 Index page:
-![alt tag](show.png)
+![alt tag](index.png)
 
 Circle page:
-![alt tag](index.png)
+![alt tag](show.png)
 
 Jan 13, 2015
 
