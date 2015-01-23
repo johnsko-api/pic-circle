@@ -11,7 +11,7 @@ class PicturesController < ApplicationController
       flash[:success] = "You've successfully uploaded a picture!"
     else
       redirect_to circle_path(@circle)
-      flash[:alert] = "You must submit a proper image url!"
+      flash[:alert] = @picture.errors.full_messages.join(".  ")
     end
   end
 

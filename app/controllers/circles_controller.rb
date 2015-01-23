@@ -17,7 +17,7 @@ class CirclesController < ApplicationController
       flash[:success] = "You've successfully created a circle!"
       redirect_to @circle
     else
-      flash[:alert] = @circle.errors.full_messages
+      flash[:alert] = @circle.errors.full_messages.join(".  ")
       render "new"
     end
   end

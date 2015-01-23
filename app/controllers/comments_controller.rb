@@ -8,6 +8,9 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     if @comment.save
       redirect_to circle_path(@circle)
+    else
+      redirect_to circle_path(@circle)
+      flash[:alert] = @comment.errors.full_messages.join(".  ")
     end
   end
 
