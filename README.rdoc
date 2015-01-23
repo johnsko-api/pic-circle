@@ -1,28 +1,8 @@
-== README
+PicCircle is a web application based on public/private groups named circles where
+users can share pictures and chat in a visually appealing manner.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Here are some screenshots of PicCircle
 
-Things you may want to cover:
+![alt tag](show.png)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+![alt tag](index.png)
